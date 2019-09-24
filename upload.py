@@ -9,7 +9,7 @@ app = Flask(__name__)
 def upload_file():
    return render_template('upload.html')
 
-returnString = "GRADING RESULT:"
+returnString = "GRADING RESULT: "
 
 @app.route('/uploader', methods = ['GET', 'POST'])
 def uploader():
@@ -18,6 +18,6 @@ def uploader():
       f.save(secure_filename(f.filename))
       retcode = subprocess.call("./test.sh", shell=True)
       return returnString + "\n You got " + str(retcode) + " out of 2 correct!"
-		
+
 if __name__ == '__main__':
    app.run(host = "0.0.0.0", port = 80, debug = True)
