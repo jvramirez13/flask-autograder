@@ -17,7 +17,7 @@ def uploader():
       f = request.files['file']
       f.save(secure_filename(f.filename))
       retcode = subprocess.call("./test.sh", shell=True)
-      return returnString + "\n Score: " + str(retcode) + " out of 2 correct."
+      return returnString + "\n You got " + str(retcode) + " out of 2 correct!"
 		
 if __name__ == '__main__':
    app.run(host = "0.0.0.0", port = 80, debug = True)
